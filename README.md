@@ -54,7 +54,12 @@ Start the application
 docker-compose up -d
 ```
 
-Call the endpoint from NGINX
+Call the endpoint from NGINX passing a name using query param "name" -> It will saves the informed name in the DB
+```
+curl http://localhost:8080\?name\={{SOME_NAME}}
+```
+
+OR just call the endpoint without nome name -> It will generate a random name to be stored in the DB
 ```
 curl http://localhost:8080
 ```
