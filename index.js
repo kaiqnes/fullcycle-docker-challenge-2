@@ -27,7 +27,6 @@ function generateRandomName() {
 }
 
 app.get('/', (req, res) => {
-    console.log(`anchor: [HOST ${process.env.DB_HOST}] [USER ${process.env.DB_USER}] [PASS ${process.env.DB_PASSWORD}] [DB ${process.env.DB_DATABASE}]`)
   const name = req.query.name || generateRandomName();
   connection.query('INSERT INTO people (name) VALUES (?)', [name], (error, result) => {
     if (error) {
