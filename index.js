@@ -39,8 +39,12 @@ app.get('/', (req, res) => {
           console.error(error);
           res.status(500).send('Error retrieving names');
         } else {
-          const names = results.map(result => result.name);
-          res.json({ names });
+          const names = results.map(result => `<li>${result.name}</li>`);
+          const html = `<h1>Full Cycle Rocks!</h1>
+              <ul>
+                ${names.join()}
+              </ul>`;
+          res.end(html);
         }
       });
     }
